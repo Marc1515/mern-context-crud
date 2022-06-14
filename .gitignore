@@ -1,0 +1,8 @@
+# node files
+node_modules
+
+# environtment variables
+.env
+
+# Others
+upload
