@@ -1,6 +1,6 @@
 import express from "express";
 import fileUpload from "express-fileupload";
-import postRoutes from "./routes/posts.routes.js";
+import postsRoutes from "./routes/posts.routes.js";
 
 const app = express();
 
@@ -14,6 +14,6 @@ app.use(
 );
 
 // Routes
-app.use(postRoutes);
+app.use(postsRoutes);
 
 export default app;
