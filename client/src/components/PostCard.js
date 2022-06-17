@@ -10,9 +10,7 @@ export function PostCard({ post }) {
     toast(
       (t) => (
         <div>
-          <p className="text-white">
-            Do you want to delete? <strong>{id}</strong>
-          </p>
+          <p className="text-white">Do you want to delete?</p>
           <div>
             <button
               className="bg-red-500 hover:bg-red-400 px-3 py-2 text-sm text-white rounded-sm mx-2"
@@ -61,7 +59,10 @@ export function PostCard({ post }) {
         <p>{post.description}</p>
       </div>
       {post.image && (
-        <img src={post.image.url} className="object-cover h-96 w-full" />
+        <img
+          src={post.image.url}
+          className="object-cover h-50 tablet:h-96 desktop:h-96 w-full"
+        />
       )}
     </div>
   );
