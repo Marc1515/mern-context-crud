@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
-    <div className="bg-neutral-900 min-h-screen flex items-center">
+    <div className="bg-[#222831] min-h-screen flex items-center">
       <div className="px-10 container m-auto">
         <PostProvaider>
           <Routes>

@@ -40,14 +40,14 @@ export function PostCard({ post }) {
 
   return (
     <div
-      className="bg-zinc-800 text-white rounded-sm shadow-md shadow-black hover: hover:bg-zinc-700 hover:cursor-pointer"
+      className="bg-[#393E46] text-[#EEEEEE] rounded-sm shadow-md shadow-black hover: hover:bg-zinc-700 hover:cursor-pointer"
       onClick={() => navigate(`/posts/${post._id}`)}
     >
       <div className="px-4 py-7">
         <div className="flex justify-between">
-          <h3>{post.title}</h3>
+          <h3 className="text-[#EEEEEE]">{post.title}</h3>
           <button
-            className="bg-red-600 hover:bg-red-500 text-sm px-2 py-1 rounded-sm"
+            className="border border-[#00ADB5] bg-[#393E46] text-[#EEEEEE] hover:bg-red-500 text-sm px-2 py-1 rounded-md"
             onClick={(e) => {
               e.stopPropagation();
               handleDelete(post._id);
@@ -56,7 +56,7 @@ export function PostCard({ post }) {
             Delete
           </button>
         </div>
-        <p>{post.description}</p>
+        <p className="text-[#EEEEEE]">{post.description}</p>
       </div>
       {post.image && (
         <img

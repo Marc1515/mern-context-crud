@@ -92,7 +92,7 @@ export const PostForm = () => {
                 htmlFor="description"
                 className="text-sm block font-bold text-gray-400"
               >
-                Description
+                Image
               </label>
               <input
                 type="file"
