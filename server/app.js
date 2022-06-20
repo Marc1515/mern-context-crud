@@ -1,27 +1,29 @@
 import express from "express";
+import morgan from "morgan";
 import fileUpload from "express-fileupload";
-import postsRoutes from "./routes/posts.routes.js";
-import { dirname, join } from "path";
+import path from "path";
+import { dirname } from "path";
 import { fileURLToPath } from "url";
+
+import postRoutes from "./routes/posts.routes.js";
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
-// Middlewares
+
+app.use(morgan("dev"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use(
   fileUpload({
-    useTempFiles: true,
     tempFileDir: "./upload",
+    useTempFiles: true,
   })
 );
 
+app.use(express.static(path.join(__dirname, "../client/build")));
+
 // Routes
-app.use(postsRoutes);
+app.use("/api", postRoutes);
 
-app.use(express.static(join(__dirname, "../client/build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(join(__dirname, "../client/build/index.html"));
-});
-
-export default app;
+export { app };

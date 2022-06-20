@@ -1,5 +1,3 @@
-import { HomePage } from "./HomePage";
-import { PostForm } from "./PostForm";
-import { NotFoundPage } from "./NotFoundPage";
-
-export { HomePage, PostForm, NotFoundPage };
+export { PostForm } from "./PostForm";
+export { HomePage } from "./HomePage";
+export { NotFoundPage } from "./NotFoundPage";

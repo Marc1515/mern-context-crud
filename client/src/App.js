@@ -1,24 +1,24 @@
-import { HomePage, PostForm, NotFoundPage } from "./pages";
 import { Routes, Route } from "react-router-dom";
-import { PostProvaider } from "./context/postContext";
+import { HomePage, NotFoundPage, PostForm } from "./pages";
+import { PostProvider } from "./context/postContext";
 import { Toaster } from "react-hot-toast";
 
-const App = () => {
+function App() {
   return (
-    <div className="bg-[#222831] min-h-screen flex items-center">
-      <div className="px-10 container m-auto">
-        <PostProvaider>
+    <div className="bg-neutral-900 min-h-screen flex items-center">
+      <div className="px-10 container m-auto py-4">
+        <PostProvider>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/new" element={<PostForm />} />
-            <Route path="/posts/:id" element={<PostForm />} />
+            <Route path="/:id" element={<PostForm />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Toaster />
-        </PostProvaider>
+        </PostProvider>
       </div>
     </div>
   );
-};
+}
 
 export default App;

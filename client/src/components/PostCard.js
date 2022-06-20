@@ -10,11 +10,13 @@ export function PostCard({ post }) {
     toast(
       (t) => (
         <div>
-          <p className="text-white">Do you want to delete?</p>
+          <p className="text-white">
+            Do you want to delete <strong>{id}</strong>?
+          </p>
           <div>
             <button
               className="bg-red-500 hover:bg-red-400 px-3 py-2 text-sm text-white rounded-sm mx-2"
-              onClick={() => {
+              onClick={(e) => {
                 deletePost(id);
                 toast.dismiss(t.id);
               }}
@@ -31,23 +33,23 @@ export function PostCard({ post }) {
         </div>
       ),
       {
+        duration: "4000",
         style: {
           background: "#202020",
         },
       }
     );
   };
-
   return (
     <div
-      className="bg-[#393E46] text-[#EEEEEE] rounded-sm shadow-md shadow-black hover: hover:bg-zinc-700 hover:cursor-pointer"
-      onClick={() => navigate(`/posts/${post._id}`)}
+      className="bg-zinc-800 text-white rounded-md shadow-md shadow-black hover:bg-zinc-700 hover:cursor-pointer"
+      onClick={() => navigate(`/${post._id}`)}
     >
       <div className="px-4 py-7">
-        <div className="flex justify-between">
-          <h3 className="text-[#EEEEEE]">{post.title}</h3>
+        <div className="flex justify-between items-center">
+          <h3 className="text-md font-semibold">{post.title}</h3>
           <button
-            className="border border-[#00ADB5] bg-[#393E46] text-[#EEEEEE] hover:bg-red-500 text-sm px-2 py-1 rounded-md"
+            className="bg-red-600 text-sm px-2 py-1 rounded-sm"
             onClick={(e) => {
               e.stopPropagation();
               handleDelete(post._id);
@@ -56,14 +58,9 @@ export function PostCard({ post }) {
             Delete
           </button>
         </div>
-        <p className="text-[#EEEEEE]">{post.description}</p>
+        <p className="text-gray-400">{post.description}</p>
       </div>
-      {post.image && (
-        <img
-          src={post.image.url}
-          className="object-cover h-50 tablet:h-96 desktop:h-96 w-full"
-        />
-      )}
+      {post.image && <img src={post.image.url} alt={post.title} />}
     </div>
   );
 }
